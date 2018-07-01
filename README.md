@@ -1,2 +1,2 @@
-# portfolio
-My personal website portfolio
+# My Portfolio
+Portfolio of my work, not deployed yet
