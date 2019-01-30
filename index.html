@@ -8,15 +8,51 @@
 		<link rel="stylesheet" type="text/css" href="styles/style.css" />
 		
 	</head>
-	<body>
+	<body onload="onload()">
 		<header>
 			<nav>
 				
 			</nav>
 		</header>
+		<div id="loading">
+			<p class="loading-text">
+				Initalizing project...<br>
+				Portfolio [ver. 94.0.5 pre-alpha]<br>
+				(c) 2019 Lachlan Drummond<br>
+				<br>
+				<br>
+				LOADING... <span id="loading-bar"></span>
+			</p>
+			<script>
+				var tick = setInterval(toggle, 1000);
+				function toggle(){
+					var text = document.getElementById("loading-bar");
+					if(text.innerHTML === ""){
+						text.innerHTML = "&#9646;";
+					} else{
+						text.innerHTML = "";
+					}
+				};
+			</script>
+		</div>
 		<div id="noise"></div>
 		<div class="bg"></div>
 		<canvas id="canvas"></canvas>
 		<!--<script src="js/lines.js"></script>-->
 	</body>
+	<script>
+		function onload(){
+			var loading = document.getElementById("loading");
+			
+			console.log("loaded");
+			function timeout(){
+				setTimeout(loaded, 3000);
+			};
+			timeout();
+			function loaded(){
+				loading.style.marginTop = "-100vh";
+				document.body.style.overflowY = "scroll";
+			};
+		};
+	</script>
 </html>
