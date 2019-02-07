@@ -5,54 +5,60 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Lachlan Drummond</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 		<link rel="stylesheet" type="text/css" href="styles/style.css" />
-		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	</head>
 	<body onload="onload()">
-		<header>
-			<nav>
-				
-			</nav>
-		</header>
-		<div id="loading">
-			<p class="loading-text">
-				Initalizing project...<br>
-				Portfolio [ver. 94.0.5 pre-alpha]<br>
-				(c) 2019 Lachlan Drummond<br>
-				<br>
-				<br>
-				LOADING... <span id="loading-bar"></span>
-			</p>
-			<script>
-				var tick = setInterval(toggle, 1000);
-				function toggle(){
-					var text = document.getElementById("loading-bar");
-					if(text.innerHTML === ""){
-						text.innerHTML = "&#9646;";
-					} else{
-						text.innerHTML = "";
-					}
-				};
-			</script>
+		<nav id="nav">
+			<ul>
+				<li>Top</li>
+				<li>Skills</li>
+				<li>Projects</li>
+				<li>About</li>
+				<li>Contact</li>
+			</ul>			
+		</nav>
+		<div id="content-container" style="margin-left: 0px">
+			<div id="noise"></div>
+			<div id="loading-spinner"></div>
+			<main id="main"	style="opacity: 0">
+				<div id="nav-toggle" onclick="navToggle()"></div>
+				<div class="landing">
+					<h4 class="landing-lead">lachlan</h4>
+					<h1 class="landing-head">Front-End Developer</h1>
+				</div>
+			</main>
+			<div class="bg">
+				<div class="bg-side bg-left">
+					<img id="bg-left-img" class="bg-img"src="imgs/scenebg2.jpg" alt="bg-left">
+				</div>
+				<div class="bg-side bg-right">
+					<img id="bg-right-img" class="bg-img" src="imgs/scenebg2.jpg" alt="bg-left">
+				</div>
+			</div>
 		</div>
-		<div id="noise"></div>
-		<div class="bg"></div>
-		<canvas id="canvas"></canvas>
-		<!--<script src="js/lines.js"></script>-->
+		<!--<canvas id="canvas"></canvas>
+		<script src="js/lines.js"></script>-->
 	</body>
 	<script>
 		function onload(){
-			var loading = document.getElementById("loading");
-			
-			console.log("loaded");
-			function timeout(){
-				setTimeout(loaded, 3000);
+			var loader = document.getElementById("loading-spinner");
+			setTimeout(loaderKill, 1800);
+			setTimeout(loaded, 2000);
+
+
+			function loaderKill(){
+				loader.style.opacity = 0;
 			};
-			timeout();
+			
 			function loaded(){
-				loading.style.marginTop = "-100vh";
+				TweenMax.to("#main", 1, {opacity: 1, top: 0});
 				document.body.style.overflowY = "scroll";
 			};
 		};
 	</script>
+	<script src="js/main.js"></script>
+	<script src="js/landing.js"></script>
 </html>

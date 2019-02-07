@@ -1,19 +1,9 @@
-var main = document.getElementById("main")
+var content = document.getElementById("content-container");
 
-initialView = function(){
-	main.classList.add("black");
-};
-initialView();
-
-document.body.onscroll = function(){
-	var scroll = window.pageYOffset;
-	console.log(scroll);
-	
-	if(window.pageYOffset < 1000){
-		main.classList.remove("blue");
-		main.classList.add("black");
+function navToggle(){
+	if(content.style.marginLeft == "0px"){
+		TweenMax.to("#content-container", 0.6, {marginLeft: "500px", ease: Expo.easeInOut});
 	} else {
-		main.classList.remove("black");
-		main.classList.add("blue");
-	};
-};
+		TweenMax.to("#content-container", 0.6, {marginLeft: "0px", ease: Expo.easeInOut});
+	}
+}
