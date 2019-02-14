@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Lachlan Drummond</title>
+		<title>Lachlan Drummond — Front-End Developer</title>
+		<meta name="description" content="Portfolio of Lachlan Drummond, Front-End Developer">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
@@ -13,23 +14,27 @@
 	<body onload="onload()">
 		<nav id="nav">
 			<ul>
-				<li>Top</li>
-				<li>Skills</li>
-				<li>Projects</li>
-				<li>About</li>
-				<li>Contact</li>
-			</ul>			
+				<li><a href="#">Top</a></li>
+				<li><a href="#"></a></li>
+			</ul>
 		</nav>
 		<div id="content-container" style="margin-left: 0px">
 			<div id="noise"></div>
 			<div id="loading-spinner"></div>
 			<main id="main"	style="opacity: 0">
-				<div id="nav-toggle" onclick="navToggle()"></div>
+				<div id="nav-toggle" onclick="navToggle()">
+					<div class="nav-toggle-ham">
+						<div class="ham ham-top"></div>
+						<div class="ham ham-mid"></div>
+						<div class="ham ham-bot"></div>
+					</div>
+				</div>
 				<div class="landing">
 					<h4 class="landing-lead">lachlan</h4>
-					<h1 class="landing-head">Front-End Developer</h1>
+					<h1 class="landing-head">Front-End Developer<br>JavaScript Fanatic</h1>
 				</div>
 			</main>
+			<div class="bg-vignette"></div>
 			<div class="bg">
 				<div class="bg-side bg-left">
 					<img id="bg-left-img" class="bg-img"src="imgs/scenebg2.jpg" alt="bg-left">
@@ -38,13 +43,28 @@
 					<img id="bg-right-img" class="bg-img" src="imgs/scenebg2.jpg" alt="bg-left">
 				</div>
 			</div>
+			<div class="bg-colour"></div>
 		</div>
 		<!--<canvas id="canvas"></canvas>
 		<script src="js/lines.js"></script>-->
 	</body>
 	<script>
 		function onload(){
+			if(window.innerWidth <= 768){
+				window.location.replace("http://m.lachlan.nz");
+			};
+
+			window.addEventListener("resize", mobile);
+
+			function mobile(){
+				if(window.innerWidth <= 768){
+					window.location.replace("http://m.lachlan.nz");
+				};
+			};
+
 			var loader = document.getElementById("loading-spinner");
+			var main = document.getElementById("main");
+			
 			setTimeout(loaderKill, 1800);
 			setTimeout(loaded, 2000);
 
