@@ -1,4 +1,4 @@
-var canvas = document.getElementById("canvas");
+var canvas = document.getElementById("lines-canvas");
 
 function initCanvas(){
 	var ctx = canvas.getContext("2d");
